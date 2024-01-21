@@ -135,5 +135,16 @@ complete -C /usr/bin/terraform terraform
 source <(minikube completion bash)
 source <(kubectl completion bash)
 
+# GOLANG
 export PATH="$PATH:/home/karlis/.local/go/bin"
+
+# Rust
 . "$HOME/.cargo/env"
+mkdir -p ~/.local/share/bash-completion/completions
+if type -P rustup > /dev/null; then
+	printf '. <(rustup completions bash)\n'       >~/.local/share/bash-completion/completions/rustup
+	printf '. <(rustup completions bash cargo)\n' >~/.local/share/bash-completion/completions/cargo
+fi
+
+# Turso
+export PATH="/home/karlis/.turso:$PATH"

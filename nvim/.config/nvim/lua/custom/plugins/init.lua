@@ -3,7 +3,8 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  {'mbbill/undotree'},
+  { 'mbbill/undotree' },
   require 'custom.plugins.copilot',
+  require 'custom.plugins.langs',
   require 'custom.plugins.misc',
 }
