@@ -195,22 +195,21 @@ require('lazy').setup({
     name = "catppuccin",
     priority = 1000,
     opts = {
-      flavour = "macchiato",
+      flavour = "mocha",
       transparent_background = true,
-
-    },
-    integrations = {
-      barbar = true,
-      cmp = true,
-      fidget = true,
-      gitsigns = true,
-      mason = true,
-      treesitter = true,
-      which_key = true,
+      integrations = {
+        barbar = true,
+        cmp = true,
+        fidget = true,
+        gitsigns = true,
+        mason = true,
+        treesitter = true,
+        which_key = true,
+      },
     },
     config = function(_, opts)
       require('catppuccin').setup(opts)
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      vim.cmd.colorscheme 'catppuccin'
 
       -- for nvim dap
       local sign = vim.fn.sign_define
@@ -219,14 +218,6 @@ require('lazy').setup({
       sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
     end
   },
-  -- {
-  --   -- Theme inspired by Atom
-  --   'navarasu/onedark.nvim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'onedark'
-  --   end,
-  -- },
 
   {
     -- Set lualine as statusline
@@ -236,7 +227,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'catppuccin',
+        -- theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
@@ -249,7 +240,9 @@ require('lazy').setup({
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
-    opts = {},
+    opts = {
+      indent = { char = "╎" }
+    },
   },
 
   -- "gc" to comment visual regions/lines
