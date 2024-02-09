@@ -16,7 +16,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=10000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -84,7 +84,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -132,19 +132,39 @@ unset __conda_setup
 
 complete -C /usr/bin/terraform terraform
 
-source <(minikube completion bash)
-source <(kubectl completion bash)
+# Minikube
+if  command -v minikube > /dev/null; then
+	source <(minikube completion bash)
+	source <(kubectl completion bash)
+fi
 
 # GOLANG
-export PATH="$PATH:/home/karlis/.local/go/bin"
+if [[ -d "$HOME/.local/go" ]]; then
+	export PATH="$HOME/.local/go/bin:$PATH"
+fi
 
 # Rust
-. "$HOME/.cargo/env"
-mkdir -p ~/.local/share/bash-completion/completions
-if type -P rustup > /dev/null; then
-	printf '. <(rustup completions bash)\n'       >~/.local/share/bash-completion/completions/rustup
-	printf '. <(rustup completions bash cargo)\n' >~/.local/share/bash-completion/completions/cargo
+if [[ -d "$HOME/.cargo" ]]; then
+	. "$HOME/.cargo/env"
+	mkdir -p ~/.local/share/bash-completion/completions
+	if type -P rustup > /dev/null; then
+		printf '. <(rustup completions bash)\n'       >~/.local/share/bash-completion/completions/rustup
+		printf '. <(rustup completions bash cargo)\n' >~/.local/share/bash-completion/completions/cargo
+	fi
 fi
 
 # Turso
-export PATH="/home/karlis/.turso:$PATH"
+if [[ -d ~/.turso ]]; then
+	export PATH="$HOME/.turso:$PATH"
+fi
+
+
+# gh copilot:
+if [[ -x "$(command -v ghask)" ]]; then 
+	alias gask='ghask suggest'
+fi
+
+# AWS
+if command -v /usr/bin/aws_completer > /dev/null; then
+	complete -C '/usr/bin/aws_completer' aws
+fi
