@@ -130,7 +130,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-complete -C /usr/bin/terraform terraform
+
+# Terraform
+if command -v /usr/bin/terraform > /dev/null; then
+	complete -C /usr/bin/terraform terraform
+fi
 
 # Minikube
 if  command -v minikube > /dev/null; then
@@ -160,7 +164,7 @@ fi
 
 
 # gh copilot:
-if [[ -x "$(command -v ghask)" ]]; then 
+if command -v ghask > /dev/null; then 
 	alias gask='ghask suggest'
 fi
 
