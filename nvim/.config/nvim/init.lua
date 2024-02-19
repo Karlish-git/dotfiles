@@ -363,7 +363,7 @@ require('custom.configs.telescope')
 require('custom.configs.treesitter')
 require('custom.configs.lsp')
 require('custom.configs.cmp')
-
+require('custom.configs.misc')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

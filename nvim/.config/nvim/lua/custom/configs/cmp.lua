@@ -5,13 +5,17 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
+-- Turn on spellcheck
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us'
+
 cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },
-completion = {
+  completion = {
     completeopt = 'menu,menuone,noinsert',
   },
   mapping = cmp.mapping.preset.insert {
@@ -47,5 +51,6 @@ completion = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
+    { name = 'spell' },
   },
 }

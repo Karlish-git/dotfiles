@@ -6,5 +6,5 @@ return {
   { 'mbbill/undotree' },
   require 'custom.plugins.copilot',
   require 'custom.plugins.langs',
-  require 'custom.plugins.misc',
+  require 'custom.plugins.ui',
 }
