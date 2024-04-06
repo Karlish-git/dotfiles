@@ -143,8 +143,8 @@ if  command -v minikube > /dev/null; then
 fi
 
 # GOLANG
-if [[ -d "$HOME/.local/go" ]]; then
-	export PATH="$HOME/.local/go/bin:$PATH"
+if [[ -d "/usr/local/go/bin" ]]; then
+	export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 fi
 
 # Rust

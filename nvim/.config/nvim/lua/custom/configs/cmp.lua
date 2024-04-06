@@ -6,8 +6,8 @@ require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
 -- Turn on spellcheck
-vim.opt.spell = true
-vim.opt.spelllang = 'en_us'
+-- vim.opt.spell = true
+-- vim.opt.spelllang = 'en_us'
 
 cmp.setup {
   snippet = {
@@ -51,6 +51,6 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
-    { name = 'spell' },
+    -- { name = 'spell' },
   },
 }

@@ -80,13 +80,29 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  -- pyright = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+
+  bashls = {},
+  docker_compose_language_service = {},
+  dockerls = {},
   gopls = {},
-  templ = {},
   htmx = {},
+  jsonls = {},
+  pyright = {},
   rust_analyzer = {},
+  ruff_lsp = {},
+  templ = {},
+  typos_lsp = {},
+  yamlls = {},
+  -- gofumpt
+  -- goimports
+  -- hadolint
+  -- shfmt
+  -- sonarlint-language-server
+  -- delve = {},
+  -- stylua = {},
+
 
   lua_ls = {
     Lua = {
