@@ -1,0 +1,6 @@
+require('custom.configs.set')
+require('custom.configs.telescope')
+require('custom.configs.treesitter')
+require('custom.configs.lsp')
+require('custom.configs.cmp')
+require('custom.configs.misc')
