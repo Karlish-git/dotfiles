@@ -105,6 +105,7 @@ local servers = {
   templ = {},
   typos_lsp = {},
   yamlls = {},
+  terraformls = {},
   -- gofumpt
   -- goimports
   -- hadolint
