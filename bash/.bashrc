@@ -152,8 +152,14 @@ if [[ -d "$HOME/.cargo" ]]; then
 	. "$HOME/.cargo/env"
 	mkdir -p ~/.local/share/bash-completion/completions
 	if type -P rustup > /dev/null; then
-		printf '. <(rustup completions bash)\n'       >~/.local/share/bash-completion/completions/rustup
-		printf '. <(rustup completions bash cargo)\n' >~/.local/share/bash-completion/completions/cargo
+	  if [ ! -f ~/.local/share/bash-completion/completions/rustup ]; then
+		printf '. <(rustup completions bash)\n' > ~/.local/share/bash-completion/completions/rustup
+	    fi
+
+	    # Create cargo completion file if it doesn't exist
+	    if [ ! -f ~/.local/share/bash-completion/completions/cargo ]; then
+		printf '. <(rustup completions bash cargo)\n' > ~/.local/share/bash-completion/completions/cargo
+	    fi
 	fi
 fi
 
@@ -172,3 +178,11 @@ fi
 if command -v /usr/bin/aws_completer > /dev/null; then
 	complete -C '/usr/bin/aws_completer' aws
 fi
+
+if [[ -d ~/.local/bin/ ]]; then
+	export PATH="$PATH:$HOME/.local/bin"
+fi
+
+export NVM_DIR="$HOME/.local/share/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
