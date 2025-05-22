@@ -12,7 +12,7 @@ after-login-command = []
 after-startup-command = []
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -43,7 +43,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
 
-# Possible values: (qwerty|dvorak)
+# Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
     preset = 'qwerty'
@@ -77,7 +77,7 @@ automatically-unhide-macos-hidden-apps = false
     # - F-keys.         f1, f2, ..., f20
     # - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
     #                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
-    #                   backspace, tab
+    #                   backspace, tab, pageUp, pageDown, home, end, forwardDelete
     # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
     #                   keypadMinus, keypadMultiply, keypadPlus
     # - Arrows.         left, down, up, right
@@ -124,8 +124,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-5 = 'workspace 5'
     alt-6 = 'workspace 6'
     alt-7 = 'workspace 7'
-#    alt-8 = 'workspace 8'
-#    alt-9 = 'workspace 9'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
 #    alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
 #    alt-b = 'workspace B'
 #    alt-c = 'workspace C'
@@ -148,7 +148,7 @@ automatically-unhide-macos-hidden-apps = false
 #    alt-x = 'workspace X'
 #    alt-y = 'workspace Y'
 #    alt-z = 'workspace Z'
-#
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
@@ -210,7 +210,14 @@ automatically-unhide-macos-hidden-apps = false
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
 
-#[workspace-to-monitor-force-assignment]
-#    1 = 'built-in'         # Monitor sequence number from left to right. 1-based indexing
-#    8 = 'P24h-30 (1)'      # Case insensitive regex substring
-#    9 = 'P24h-30 (2)'      # Non-main monitor in case when there are only two monitors
+
+[workspace-to-monitor-force-assignment]
+    1 = 'Built-in'    # this is for only built-in monitor
+    2 = 'Built-in'    # this is for only built-in monitor
+    3 = 'Built-in'    # this is for only built-in monitor
+    4 = 'Built-in'    # this is for only built-in monitor
+    5 = 'Built-in'    # this is for only built-in monitor
+    6 = 'Built-in'    # this is for only built-in monitor
+    7 = 'Built-in'    # this is for only built-in monitor
+    8 = 'P24h-30 \(1\)'    # Non-main monitor in case when there are only two monitors
+    9 = 'P24h-30 \(2\)'    # Case insensitive regex substring
