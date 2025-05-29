@@ -248,6 +248,7 @@ require('lazy').setup({
     opts = {
       flavour = "mocha",
       transparent_background = true,
+      show_end_of_buffer = true,
       integrations = {
         barbar = true,
         cmp = true,
@@ -256,6 +257,24 @@ require('lazy').setup({
         mason = true,
         treesitter = true,
         which_key = true,
+        indent_blankline = {
+          enabled = true,
+          scope_color = "lavander", -- catppuccin color (eg. `lavender`) Default: text
+          colored_indent_levels = true,
+        },
+      },
+      custom_highlights = function(colors)
+        return {
+          Comment = { fg = colors.flamingo },
+          TabLineSel = { bg = colors.pink },
+          CmpBorder = { fg = colors.surface2 },
+          LineNr = { fg = colors.surface2, bg = 'NONE' },
+        }
+      end,
+      dim_inactive = {
+        enabled = false,   -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
       },
     },
     config = function(_, opts)
