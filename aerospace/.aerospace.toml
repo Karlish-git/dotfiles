@@ -219,5 +219,5 @@ automatically-unhide-macos-hidden-apps = false
     5 = 'Built-in'    # this is for only built-in monitor
     6 = 'Built-in'    # this is for only built-in monitor
     7 = 'Built-in'    # this is for only built-in monitor
-    8 = 'P24h-30 \(1\)'    # Non-main monitor in case when there are only two monitors
-    9 = 'P24h-30 \(2\)'    # Case insensitive regex substring
+    8 = ['P24h-30 \(2\)', '^P24h-30$']    # Case insensitive regex substring
+    9 = 'P24h-30 \(1\)'    # Non-main monitor in case when there are only two monitors
